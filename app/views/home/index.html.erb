@@ -8,13 +8,13 @@
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="<%= show_tab(@tab, 'users') %>"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+          <li role="presentation" class="<%= show_tab(@tab, 'users') || show_tab(@tab, nil) %>"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
           <li role="presentation" class="<%= show_tab(@tab, 'dogs') %>"><a href="#dogs" aria-controls="dogs" role="tab" data-toggle="tab">Dogs</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane <%= show_tab(@tab, 'users') %>" id="users">
+          <div role="tabpanel" class="tab-pane <%= show_tab(@tab, 'users') || show_tab(@tab, nil) %>" id="users">
             <%= will_paginate @users, param_name: 'user_page', params: { tab: 'users' }, class: 'pagination-lg' %>
 
             <table class="table">
